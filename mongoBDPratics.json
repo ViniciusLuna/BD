@@ -1,0 +1,45 @@
+//Vinicius Luna - Metodista - 33XXXXX - Revisao BD Avancado
+
+//criar db
+use pessoaData
+
+//mostra bancos
+show dbs
+
+//cria o primeiro registro
+db.pessoas.insertOne
+
+//mostra bancos
+show dbs
+
+//mostra suas colecoes
+show collections
+
+//criar outra colecao
+db.carros.insertOne({marca:"Ferrari"});
+
+//mostra colecao (retorna pessoa e carros)
+show collections
+
+//inserir muitos
+db.pessoas.insertMany([
+    {nome: "clara", idade: "32", profissao: "medica", estaempregada: true}
+]);
+//--------------------metodo find-----------------------------------
+db.pessoas.find(); //all values, no shel fica ok
+//metodo find pretty () para mostrar bacana no prompit
+db.pessoas.find().pretty()
+//retorna pessoa
+//saber quantos registros tem no banco utilizamos o count 
+db.pessoas.find({esta_empregado:true}).count();
+//metodo findOne ?
+
+//updateOne - encontra o registro e realiza a alteracao
+db.pessoas.updateOne({nome: "clara", 
+                        {$set:{esta_empregada: false}});
+
+//conferir
+db.pessoas.findOne({nome: "clara"})
+
+//updateMany
+db.pessoas.updateMany({}, {$set: {salario: 5000}});
