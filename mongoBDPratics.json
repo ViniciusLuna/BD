@@ -43,3 +43,18 @@ db.pessoas.findOne({nome: "clara"})
 
 //updateMany
 db.pessoas.updateMany({}, {$set: {salario: 5000}});
+
+//*************table ganhadores collection ganhadores*************
+//Rontina do tipo: Busca um registro. Se ele existir, atualiza; caso contrario, cadastra
+//Em mongoDB nao sera necessario rotina pra isso, basta ativar o parametro upsert
+//parametro upsert
+db.ganhadores.update({"Nome" : "Mula sem cabeça"},
+{ $set: {"CPF": 33333333333}},
+{multi:0,upsert:0});
+
+//Contar quantos registros ha na collection
+db.ganhadores.count();
+//Remover registros
+db.ganhadores.remove({"CPF": 8585858585});
+//Deletar registros
+db.ganhadores.deleteOne({"Nome": "Vinicius Luna"});
