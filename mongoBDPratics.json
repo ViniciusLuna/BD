@@ -58,3 +58,7 @@ db.ganhadores.count();
 db.ganhadores.remove({"CPF": 8585858585});
 //Deletar registros
 db.ganhadores.deleteOne({"Nome": "Vinicius Luna"});
+//Dropar a base - drop collection
+db.ganhadores.drop();
+//Delete may
+db.carros.deleteMany({"_id": ObjectId("hash_do_id_criado")});
